@@ -8,6 +8,7 @@
 
 import UIKit
 import PushNotifications
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,12 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let pushNotifications = PushNotifications.shared
-
+    let reachability = ReachabilityManager.shared
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.pushNotifications.start(instanceId: "cdaf9857-fad0-4bfb-b360-64c1b2693ef3")
         self.pushNotifications.registerForRemoteNotifications()
         try? self.pushNotifications.subscribe(interest: "broadcast")
         
+       reachability.start()
 //        print("Launch")
         return true
     }

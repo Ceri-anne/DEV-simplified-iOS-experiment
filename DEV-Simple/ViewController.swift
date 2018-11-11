@@ -17,7 +17,11 @@ extension Notification.Name {
     static let completedLengthyDownload = Notification.Name("completedLengthyDownload")
 }
 
-class ViewController: UIViewController, WKNavigationDelegate {
+protocol CanReload {
+    func reload()
+}
+
+class ViewController: UIViewController, WKNavigationDelegate, CanReload {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
@@ -27,8 +31,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var lightAlpha = CGFloat(0.2)
     
     let pushNotifications = PushNotifications.shared
+    let reachability = ReachabilityManager.shared
     
     let devToURLString = "https://dev.to"
+    
+    lazy var url: URL = {
+        return URL(string: devToURLString)!
+    }()
     
     struct UserData: Codable {
         var id: Int
@@ -45,27 +54,30 @@ class ViewController: UIViewController, WKNavigationDelegate {
         addShellShadow()
         let notificationName = Notification.Name("updateWebView")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateWebView), name: notificationName, object: nil)
-    
-        loadWebView()
-        
-    }
-    
-    func loadWebView() {
-        guard let url = URL(string: devToURLString) else {
-            handleNoConnection()
-            return
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: .reachabilityChanged, object: nil)
         webView.load(URLRequest(url: url))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        loadWebView()
+    override func viewWillAppear(_ animated: Bool) {
+        if !reachability.isConnected() {
+            handleNoConnection()
+        }
     }
-
+    
+    func reload() {
+         webView.load(URLRequest(url: url))
+    }
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         print("back")
         if webView.canGoBack {
             webView.goBack()
+        }
+    }
+    
+    @objc func reachabilityChanged() {
+        if !reachability.isConnected() {
+             handleNoConnection()
         }
     }
     
@@ -78,6 +90,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     @IBAction func safariButtonTapped(_ sender: Any) {
         openInBrowser()
     }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         backButton.isEnabled = webView.canGoBack
         backButton.alpha = webView.canGoBack ? 0.9 : lightAlpha

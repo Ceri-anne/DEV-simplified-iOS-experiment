@@ -18,6 +18,8 @@
 		73E8ACC72192165E009CE057 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E8ACC62192165E009CE057 /* BrowserViewController.swift */; };
 		CC51C71721987B6700EFCE42 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC51C71621987B6700EFCE42 /* ErrorViewController.swift */; };
 		CC51C71921987BD600EFCE42 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC51C71821987BD600EFCE42 /* Error.storyboard */; };
+		CC51C71D219881F500EFCE42 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC51C71C219881F500EFCE42 /* Reachability.framework */; };
+		CC51C84021988BAD00EFCE42 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC51C83F21988BAD00EFCE42 /* ReachabilityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		73E8ACC62192165E009CE057 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		CC51C71621987B6700EFCE42 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		CC51C71821987BD600EFCE42 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
+		CC51C71C219881F500EFCE42 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		CC51C83F21988BAD00EFCE42 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73D7676B2190D88B00BD13B6 /* PushNotifications.framework in Frameworks */,
+				CC51C71D219881F500EFCE42 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,7 @@
 				73D7675A218BA66B00BD13B6 /* DEV-SimpleUITests */,
 				73D76739218BA66700BD13B6 /* Products */,
 				73D7676A2190D88B00BD13B6 /* PushNotifications.framework */,
+				CC51C71B219881F500EFCE42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +118,7 @@
 				CC51C71A21987D9800EFCE42 /* Error */,
 				73D7673B218BA66700BD13B6 /* AppDelegate.swift */,
 				73D7673D218BA66700BD13B6 /* ViewController.swift */,
+				CC51C83F21988BAD00EFCE42 /* ReachabilityManager.swift */,
 				73D7673F218BA66700BD13B6 /* Main.storyboard */,
 				73D76742218BA66B00BD13B6 /* Assets.xcassets */,
 				73D76744218BA66B00BD13B6 /* LaunchScreen.storyboard */,
@@ -146,6 +153,14 @@
 				CC51C71621987B6700EFCE42 /* ErrorViewController.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		CC51C71B219881F500EFCE42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC51C71C219881F500EFCE42 /* Reachability.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +312,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/PushNotifications.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -318,6 +334,7 @@
 				73E8ACC72192165E009CE057 /* BrowserViewController.swift in Sources */,
 				73D7673C218BA66700BD13B6 /* AppDelegate.swift in Sources */,
 				CC51C71721987B6700EFCE42 /* ErrorViewController.swift in Sources */,
+				CC51C84021988BAD00EFCE42 /* ReachabilityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
