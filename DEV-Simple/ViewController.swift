@@ -37,8 +37,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         webView.customUserAgent = "DEV-Native-ios"
         webView.scrollView.scrollIndicatorInsets.top = view.safeAreaInsets.top + 50
-        let url = URL(string: devToURLString)!
-        webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoBack), options: [.new, .old], context: nil)
@@ -47,6 +45,21 @@ class ViewController: UIViewController, WKNavigationDelegate {
         addShellShadow()
         let notificationName = Notification.Name("updateWebView")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateWebView), name: notificationName, object: nil)
+    
+        loadWebView()
+        
+    }
+    
+    func loadWebView() {
+        guard let url = URL(string: devToURLString) else {
+            handleNoConnection()
+            return
+        }
+        webView.load(URLRequest(url: url))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadWebView()
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -70,7 +83,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
         backButton.alpha = webView.canGoBack ? 0.9 : lightAlpha
         forwardButton.isEnabled = webView.canGoForward
         forwardButton.alpha = webView.canGoForward ? 0.9 : lightAlpha
-        webView.scrollView.isScrollEnabled = !(webView.url?.path.hasPrefix("/connect"))!  //Remove scroll if /connect view
+        guard let url = webView.url else {
+            handleNoConnection()
+            return
+        }
+        webView.scrollView.isScrollEnabled = !(url.path.hasPrefix("/connect"))  //Remove scroll if /connect view
         modifyShellDesign()
     }
     
@@ -85,7 +102,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
     }
 
+    func handleNoConnection() {
+        let errorViewController = UIStoryboard(name: "Error", bundle: nil).instantiateInitialViewController() as! ErrorViewController
+        self.present(errorViewController, animated: true)
+    }
     
+  
     func askForNotificationPermission() {
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge];

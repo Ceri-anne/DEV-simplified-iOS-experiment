@@ -16,6 +16,8 @@
 		73D7675C218BA66B00BD13B6 /* DEV_SimpleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D7675B218BA66B00BD13B6 /* DEV_SimpleUITests.swift */; };
 		73D7676B2190D88B00BD13B6 /* PushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D7676A2190D88B00BD13B6 /* PushNotifications.framework */; };
 		73E8ACC72192165E009CE057 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E8ACC62192165E009CE057 /* BrowserViewController.swift */; };
+		CC51C71721987B6700EFCE42 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC51C71621987B6700EFCE42 /* ErrorViewController.swift */; };
+		CC51C71921987BD600EFCE42 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC51C71821987BD600EFCE42 /* Error.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		73D767692190CE3900BD13B6 /* DEV-Simple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DEV-Simple.entitlements"; sourceTree = "<group>"; };
 		73D7676A2190D88B00BD13B6 /* PushNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushNotifications.framework; path = Carthage/Build/iOS/PushNotifications.framework; sourceTree = "<group>"; };
 		73E8ACC62192165E009CE057 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		CC51C71621987B6700EFCE42 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		CC51C71821987BD600EFCE42 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				73D767692190CE3900BD13B6 /* DEV-Simple.entitlements */,
+				CC51C71A21987D9800EFCE42 /* Error */,
 				73D7673B218BA66700BD13B6 /* AppDelegate.swift */,
 				73D7673D218BA66700BD13B6 /* ViewController.swift */,
 				73D7673F218BA66700BD13B6 /* Main.storyboard */,
@@ -132,6 +137,15 @@
 				73D7675D218BA66B00BD13B6 /* Info.plist */,
 			);
 			path = "DEV-SimpleUITests";
+			sourceTree = "<group>";
+		};
+		CC51C71A21987D9800EFCE42 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CC51C71821987BD600EFCE42 /* Error.storyboard */,
+				CC51C71621987B6700EFCE42 /* ErrorViewController.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73D76746218BA66B00BD13B6 /* LaunchScreen.storyboard in Resources */,
+				CC51C71921987BD600EFCE42 /* Error.storyboard in Resources */,
 				73D76743218BA66B00BD13B6 /* Assets.xcassets in Resources */,
 				73D76741218BA66700BD13B6 /* Main.storyboard in Resources */,
 			);
@@ -302,6 +317,7 @@
 				73D7673E218BA66700BD13B6 /* ViewController.swift in Sources */,
 				73E8ACC72192165E009CE057 /* BrowserViewController.swift in Sources */,
 				73D7673C218BA66700BD13B6 /* AppDelegate.swift in Sources */,
+				CC51C71721987B6700EFCE42 /* ErrorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
