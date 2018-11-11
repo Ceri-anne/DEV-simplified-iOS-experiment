@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,12 +57,10 @@
                         <color key="backgroundColor" red="0.98823529409999999" green="0.97647058819999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99249070569999998" green="1" blue="0.8414684389" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="F2D-9Y-Pox" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="10" id="5k1-Jv-SUs"/>
                             <constraint firstItem="9JM-0s-c02" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6ry-dr-ncJ"/>
                             <constraint firstItem="F2D-9Y-Pox" firstAttribute="leading" secondItem="W7j-Fc-Qti" secondAttribute="trailing" constant="25" id="9IJ-xG-T3y"/>
                             <constraint firstItem="W7j-Fc-Qti" firstAttribute="top" secondItem="9JM-0s-c02" secondAttribute="bottom" constant="5" id="Bc4-yH-4lz"/>
                             <constraint firstItem="RVf-81-qth" firstAttribute="top" secondItem="F2D-9Y-Pox" secondAttribute="top" id="Hr9-9Q-87q"/>
-                            <constraint firstItem="W7j-Fc-Qti" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="10" id="JpA-ab-SSh"/>
                             <constraint firstItem="9JM-0s-c02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sy1-Wh-qhs"/>
                             <constraint firstItem="9JM-0s-c02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJ6-hb-iVl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RVf-81-qth" secondAttribute="trailing" constant="25" id="eJe-SW-SwL"/>

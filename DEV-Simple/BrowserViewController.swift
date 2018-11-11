@@ -19,7 +19,7 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
         webView.backForwardList.perform(Selector(("_removeAllItems")))
         let url = URL(string: "https://github.com")!
-        webView.load(URLRequest(url: destinationUrl ?? URL(string: "https://github.com")!))
+        webView.load(URLRequest(url: destinationUrl ?? url))
     }
     
     func openInBrowser() {
